@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'squid-font';
+    src: url('font/squid-font.ttf');
+    font-weight: normal;
+}
+
+:root {
+    --green: #37a18e;
+    --purple-light: #9341a3;
+    --purple-dark: #921f81;
+    --rose: #df445c;
+    --steel-blue: #4599b2;
+    --steel-blue-accent: #1d90b3;
+    --modal-bg: rgba(188, 87, 228, 0.973);
+  }
+
+html{
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: squid-font;
+    color: white;
+}
+
+body{
+    background: linear-gradient(90deg, rgba(147,65,163,1) 0%, rgba(146,31,129,1) 10%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(146,31,129,1) 90%, rgba(223,68,92,1) 100%);
+    margin: 0 auto;
+}
+
+.border-flash{
+    animation: border-flash 0.5s linear;
+}
+
+@keyframes border-flash {
+    0% {
+        background: linear-gradient(90deg, rgba(147,65,163,1) 0%, rgb(218, 0, 0) 10%,  rgba(223,68,92,1) 100%);
+      }
+
+      50% {
+        background: linear-gradient(90deg, rgba(147,65,163,1) 0%, rgb(218, 0, 0) 10%,  rgba(223,68,92,1) 100%);
+      }
+    100% {
+        background: linear-gradient(90deg, rgba(147,65,163,1) 0%, rgba(146,31,129,1) 10%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(146,31,129,1) 90%, rgba(223,68,92,1) 100%);
+      }
+}
+
+h1{
+    font-size: clamp(1rem, 2vw + 1rem, 4rem); 
+    text-align: center;
+    line-height: 2rem;
+    letter-spacing: .2em;
+}
+
+p{
+    font-size: clamp(1rem, 1vw + 1rem, 3rem); 
+    margin: 0;
+    text-shadow: .15em .15em black;
+    letter-spacing: .1em;
+}
+
+.game_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Menu Modal */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    background-color: var(--modal-bg);
+  }
+  
+  /* Modal Content/Box */
+.modal-content {
+    position: absolute;
+    margin: auto; /* 15% from the top and centered */
+    width: 70vw; /* Could be more or less, depending on screen size */
+    height: 50vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-content > * {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    text-shadow: .15em .15em black;
+}
+
+#startGame_btn {
+    font-family: squid-font;    
+    font-size: clamp(1.2rem, 1vw + 1rem, 2rem); 
+    padding: 0 1rem 0 1rem;
+    background-color: var(--steel-blue);
+    outline: none;
+    border: none;
+    box-shadow: .2em .2em .2em black;
+    text-shadow: none;
+}
+ 
+#startGame_btn:hover{
+    background-color: var(--steel-blue-accent);
+}
+
+/* Message Modal */
+.message_modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+  }
+  
+  /* Modal Content/Box */
+.message_modal-content {
+    font-size: clamp(1rem, 2vw + 1rem, 4rem); 
+    position: absolute;
+    margin: auto; /* 15% from the top and centered */
+    width: 70vw; /* Could be more or less, depending on screen size */
+    height: 50vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.message_modal-content > * {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    text-shadow: .15em .15em black;
+}
+
+
+.text_pink_bg{
+    text-shadow: .1em .1em .1em rgb(247, 6, 118);
+}
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.grid_container{
+    grid-gap: 1vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    align-items: center;
+    text-align: center;
+    width: 50vw;
+    padding: 1rem;
+}
+
+.grid_container > * {
+    height: clamp(1vh, 4vh, 5vh);
+    font-size: 1.5rem;
+}
+
+.square{
+    border: .2em solid white;
+    background-color: var(--purple-dark);
+    cursor: pointer;
+}
+
+
+
+
+.square:hover{
+    background-color: var(--purple-light);
+}
+
+.sqA{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.sqB{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.broken{
+    background-color: black;
+}
+
+.broken:hover{
+    background-color: black;
+}
+
+.number{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 2vw;
+}
+
+.player{
+    background: radial-gradient(circle at 50%, var(--green) 5%, var(--purple-dark) 0%);
+}
+
+.player-death{
+    background: radial-gradient(circle at 50%, var(--green) 5%, black 0%);
+}
+
+/* .player:hover{
+    cursor: not-allowed;
+} */
+
+.score_holder{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    padding-bottom: 1.5rem;
+    text-align: right;
+}
+
+.start{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    padding: 1rem;
+    background-origin: var(--purple-dark);
+}
+
+.start > p {
+    line-height: 1em;
+    text-align: left;
+}
+
+
+.player_start_dot,
+.player_end_dot{
+    background: radial-gradient(circle at 50%, var(--green) 2.5%, var(--purple-dark) 0%);  
+}
+
+.end{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    padding: 1rem;
+
+}
