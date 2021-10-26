@@ -110,10 +110,6 @@ p{
     background-color: var(--steel-blue-accent);
 }
 
-#startGame_btn:hover:before{
-    content: "hello";
-}
-
 
 /* Message Modal */
 .message_modal {
