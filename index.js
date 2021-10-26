@@ -20,7 +20,6 @@ const layout = [
                 "AE", "BE"
 ]
 
-
 // Display GameGrid //
 function createGrid() {
     for (let i=0; i < layout.length; i++) {
@@ -52,7 +51,8 @@ function gameReset() {
     playerPos = 1
     playerLives = 3
     createGrid()
-    lives.innerHTML = `${playerLives} lives`
+    updateValid()
+    lives.innerHTML = `${playerLives} players`
 }
 
 // Menu Modal//
@@ -67,12 +67,29 @@ startBtn.onclick = function() {
 // Menu Flash //
 
 function animate (node, animation, onEnd = function () {}) {
-    console.log(node)
 	node.classList.add(animation);
 	node.addEventListener('animationend', function () {
 		node.classList.remove(animation);
 		onEnd(node, animation);
 	}, {once: true});
+}
+
+function updateValid(){
+     const playerEven = playerPos % 2 === 0 ? true : false
+    const playerPosPlus1Str = (playerPos+1).toString()
+    const playerPosPlus2Str = (playerPos+2).toString()
+    const playerPosPlus3Str = (playerPos+3).toString()
+    tiles.forEach(tile => {
+            tile.classList.remove('disabled')
+            console.log(tile)
+            if ((playerEven === true) && !(tile.classList.contains(playerPosPlus1Str) || tile.classList.contains(playerPosPlus2Str))){
+            tile.classList.add('disabled')
+            }
+            else if ((playerEven === false) && !(tile.classList.contains(playerPosPlus2Str) || tile.classList.contains(playerPosPlus3Str))) {
+                tile.classList.add('disabled')
+            }
+        })
+            
 }
 
 function checkValid(clickTile){
@@ -115,24 +132,33 @@ function gamePlay(){
                     setTimeout(()=>{tiles[0].classList.add('player_start_dot')}, 500)
                     
                     playerLives--
-                    lives.innerHTML = `${playerLives} lives`
+                    lives.innerHTML = `${playerLives} players`
                     animate(body, 'border-flash', function (node, animation) {
-                        console.log("saxfsd")
+
                     });
                     message.style.display = "block"
                     setTimeout(function(){ message.style.display = "none" }, 500)
+                    updateValid()
+                    checkLose()
                     return
                 }
                 else {
                     tiles[0].classList.remove('player_start_dot')
                     clickTile.classList.add('player')
                     clickTile.classList.contains(playerPosPlus1Str) ? playerPos = playerPos+1 : playerPos = playerPos+2
-                    return
+                    updateValid()
                 }
             }
         })
     })
 }
 
+// loose modal 
 
-// check if the player has won or is it out of lives
+// squid games type letter scrambling?
+// animate on hover
+// win modal (short delay first) (count the dead and living)
+// allow users to select player numbers1
+// make glass crack
+// player svg
+// animate player to the next block?

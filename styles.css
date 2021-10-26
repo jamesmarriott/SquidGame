@@ -103,11 +103,17 @@ p{
     border: none;
     box-shadow: .2em .2em .2em black;
     text-shadow: none;
+    cursor: pointer;
 }
  
 #startGame_btn:hover{
     background-color: var(--steel-blue-accent);
 }
+
+#startGame_btn:hover:before{
+    content: "hello";
+}
+
 
 /* Message Modal */
 .message_modal {
@@ -119,8 +125,18 @@ p{
     right: 0;
     left: 0;
     text-align: center;
+}
 
-  }
+.message_lose {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
   
   /* Modal Content/Box */
 .message_modal-content {
@@ -133,6 +149,7 @@ p{
     bottom: 0;
     left: 0;
     right: 0;
+  
 }
 
 .message_modal-content > * {
@@ -183,11 +200,22 @@ p{
     cursor: pointer;
 }
 
-
-
-
 .square:hover{
     background-color: var(--purple-light);
+    border: .2em solid red;
+}
+
+.disabled{
+    cursor: default;
+}
+
+.disabled:hover{
+    border: .2em solid white;
+    cursor: default;
+}
+
+.disabled:hover{
+    background-color: var(--purple-dark);
 }
 
 .sqA{
@@ -222,9 +250,7 @@ p{
     background: radial-gradient(circle at 50%, var(--green) 5%, black 0%);
 }
 
-/* .player:hover{
-    cursor: not-allowed;
-} */
+
 
 .score_holder{
     grid-row-start: 1;
