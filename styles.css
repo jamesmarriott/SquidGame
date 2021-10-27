@@ -22,7 +22,7 @@ html{
 }
 
 body{
-    background: linear-gradient(90deg, rgba(147,65,163,1) 0%, rgba(146,31,129,1) 10%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(146,31,129,1) 90%, rgba(223,68,92,1) 100%);
+    background: linear-gradient(90deg, rgba(223,68,92,1) 0%, rgba(146,31,129,1) 10%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(146,31,129,1) 90%, rgba(223,68,92,1) 100%);
     margin: 0 auto;
 }
 
@@ -63,11 +63,10 @@ p{
     justify-content: center;
 }
 
-
 /* Menu Modal */
 .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    z-index: 1; 
     top: 0;
     bottom: 0;
     right: 0;
@@ -79,8 +78,8 @@ p{
   /* Modal Content/Box */
 .modal-content {
     position: absolute;
-    margin: auto; /* 15% from the top and centered */
-    width: 70vw; /* Could be more or less, depending on screen size */
+    margin: auto;
+    width: 70vw; 
     height: 50vh;
     top: 0;
     bottom: 0;
@@ -94,7 +93,7 @@ p{
     text-shadow: .15em .15em black;
 }
 
-#startGame_btn {
+.btn {
     font-family: squid-font;    
     font-size: clamp(1.2rem, 1vw + 1rem, 2rem); 
     padding: 0 1rem 0 1rem;
@@ -106,16 +105,20 @@ p{
     cursor: pointer;
 }
  
-#startGame_btn:hover{
-    background-color: var(--steel-blue-accent);
+.lose_modal,
+.win_modal{
+    display: none;
 }
 
+.btn:hover{
+    background-color: var(--steel-blue-accent);
+}
 
 /* Message Modal */
 .message_modal {
     display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed; 
+    z-index: 1; 
     top: 0;
     bottom: 0;
     right: 0;
@@ -123,29 +126,17 @@ p{
     text-align: center;
 }
 
-.message_lose {
-    display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-}
-  
   /* Modal Content/Box */
 .message_modal-content {
     font-size: clamp(1rem, 2vw + 1rem, 4rem); 
     position: absolute;
-    margin: auto; /* 15% from the top and centered */
-    width: 70vw; /* Could be more or less, depending on screen size */
+    margin: auto; 
+    width: 70vw; 
     height: 50vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-  
 }
 
 .message_modal-content > * {
@@ -153,7 +144,6 @@ p{
     padding-bottom: 1.5rem;
     text-shadow: .15em .15em black;
 }
-
 
 .text_pink_bg{
     text-shadow: .1em .1em .1em rgb(247, 6, 118);
@@ -246,8 +236,6 @@ p{
     background: radial-gradient(circle at 50%, var(--green) 5%, black 0%);
 }
 
-
-
 .score_holder{
     grid-row-start: 1;
     grid-row-end: 2;
@@ -268,7 +256,6 @@ p{
     line-height: 1em;
     text-align: left;
 }
-
 
 .player_start_dot,
 .player_end_dot{

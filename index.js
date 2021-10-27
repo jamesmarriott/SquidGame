@@ -1,10 +1,19 @@
 let tiles = []
 let playerPos
-let playerLives = 3
+let playerLives
+
 const grid = document.querySelector('.grid_container')
 const body = document.body
-const message = document.getElementById("messageModal");
+
+const message = document.getElementById("messageModal")
+const modal = document.getElementById("menu-modal")
+const startBtn = document.getElementById("startGame_btn")
+const againBtn = document.getElementById("playAgain_btn")
+const goAgainBtn = document.getElementById("goAgain_btn")
+const loseModal = document.getElementById("lose-modal")
+const winModal = document.getElementById("win-modal")
 const lives = document.querySelector('.life-counter')
+const playWinNum = document.querySelector('.playWinNum')
 const startPos = document.querySelector('.start')
 const layout = [
                 "AS", "BS",
@@ -47,17 +56,49 @@ function createGrid() {
     }
 }
 
+function checkGameOver() {
+    tiles.forEach(tile => {
+        if (tile.classList.contains('end') && tile.classList.contains('player')) {
+            playWinNum.innerHTML = `${playerLives} players made it!`
+            setTimeout(()=>{winModal.style.display = "block"}, 500)
+        }
+    })
+    if (playerLives === 0) {
+        setTimeout(()=>{loseModal.style.display = "block"}, 500)
+    }
+}
+
+againBtn.onclick = function() {
+    tiles.forEach(n => n.remove())
+    tiles = []
+    gameReset()
+    loseModal.style.display = "none"
+    gamePlay()
+}
+
+goAgainBtn.onclick = function() {
+    tiles.forEach(n => n.remove())
+    tiles = []
+    gameReset()
+    winModal.style.display = "none"
+    gamePlay()
+}
+
+startBtn.onclick = function() {
+    gameReset()
+    modal.style.display = "none"
+    gamePlay()
+}
+
 function gameReset() {
     playerPos = 1
-    playerLives = 3
+    playerLives = 10
     createGrid()
     updateValid()
     lives.innerHTML = `${playerLives} players`
 }
 
 // Menu Modal//
-const modal = document.getElementById("myModal");
-const startBtn = document.getElementById("startGame_btn")
 startBtn.onclick = function() {
     gameReset()
     modal.style.display = "none"
@@ -81,15 +122,14 @@ function updateValid(){
     const playerPosPlus3Str = (playerPos+3).toString()
     tiles.forEach(tile => {
             tile.classList.remove('disabled')
-            console.log(tile)
+
             if ((playerEven === true) && !(tile.classList.contains(playerPosPlus1Str) || tile.classList.contains(playerPosPlus2Str))){
             tile.classList.add('disabled')
             }
             else if ((playerEven === false) && !(tile.classList.contains(playerPosPlus2Str) || tile.classList.contains(playerPosPlus3Str))) {
                 tile.classList.add('disabled')
             }
-        })
-            
+        })           
 }
 
 function checkValid(clickTile){
@@ -139,13 +179,14 @@ function gamePlay(){
                     message.style.display = "block"
                     setTimeout(function(){ message.style.display = "none" }, 500)
                     updateValid()
-                    checkLose()
+                    checkGameOver()
                     return
                 }
                 else {
                     tiles[0].classList.remove('player_start_dot')
                     clickTile.classList.add('player')
                     clickTile.classList.contains(playerPosPlus1Str) ? playerPos = playerPos+1 : playerPos = playerPos+2
+                    checkGameOver()
                     updateValid()
                 }
             }
@@ -153,11 +194,8 @@ function gamePlay(){
     })
 }
 
-// loose modal 
-
 // squid games type letter scrambling?
 // animate on hover
-// win modal (short delay first) (count the dead and living)
 // allow users to select player numbers1
 // make glass crack
 // player svg

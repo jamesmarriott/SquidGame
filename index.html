@@ -13,20 +13,39 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div><h1 class="life-counter">3 Players Remaining</h1></div>
+        <div><h1 class="life-counter">Players</h1></div>
         <div class="game_container">
-            <div id="myModal" class="modal">
+
+            <!-- start menu modal -->
+
+            <div id="menu-modal" class="modal">
                 <div class="modal-content">
                     <h1>S<span class="text_pink_bg">q</span>uid G<span class="text_pink_bg">a</span>m<span class="text_pink_bg">e</span></h1>
                     <p>The glass bridge</p>
-                    <p>
-                        <span>&#8420; &nbsp;</span>
-                        <span>&#9711; &nbsp;</span> 
-                        <span>&#8414; &nbsp;</span> 
-                    </p>
-                    <button id="startGame_btn">Start</button>
+                    <button id="startGame_btn" class="btn"> Start</button>
                   </div>
             </div>
+
+            <!-- lose game modal -->
+
+            <div id="lose-modal" class="lose_modal modal">
+                <div class="modal-content">
+                    <h1>All Players Eliminated</h1>
+                    <button id="playAgain_btn" class="btn">Try Again?</button>
+                  </div>
+            </div>
+
+           <!-- win game modal -->
+
+            <div id="win-modal" class="modal win_modal">
+                <div class="modal-content">
+                    <h1>You did it!</h1>
+                    <h1 class="playWinNum"></h1>
+                    <button id="goAgain_btn" class="btn">Play Again?</button>
+                  </div>
+            </div>
+
+            <!-- in play death message modal -->
 
             <div id="messageModal" class="message_modal">
                 <div class="message_modal-content">
@@ -37,6 +56,7 @@
                   </div>
             </div>
 
+            <!-- game board area -->
 
             <div class="grid_container">
             </div>
@@ -47,3 +67,10 @@
     </body>
 </html>
 
+<!-- some unicode characters for shapes -->
+
+                    <!-- <p>
+                        <span>&#8420; &nbsp;</span>
+                        <span>&#9711; &nbsp;</span> 
+                        <span>&#8414; &nbsp;</span> 
+                    </p> -->
