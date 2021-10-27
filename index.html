@@ -22,6 +22,10 @@
                 <div class="modal-content">
                     <h1>S<span class="text_pink_bg">q</span>uid G<span class="text_pink_bg">a</span>m<span class="text_pink_bg">e</span></h1>
                     <p>The glass bridge</p>
+                    <h3 class="instr">A game inspired by the 5th <a href="https://en.wikipedia.org/wiki/Squid_Game">Squid Game</a>.</h3>
+                    <h3 class="instr">Players must cross a two-panel wide bridge. One panel is strong glass and the other is weak.</h3>
+                    <h3  class="instr"> If a player steps on the weak glass, the glass breaks and the player is eliminated.</h3>
+                        <p>Save the players!</p>
                     <button id="startGame_btn" class="btn"> Start</button>
                   </div>
             </div>
@@ -29,7 +33,7 @@
             <!-- lose game modal -->
 
             <div id="lose-modal" class="lose_modal modal">
-                <div class="modal-content">
+                <div class="modal-winlose">
                     <h1>All Players Eliminated</h1>
                     <button id="playAgain_btn" class="btn">Try Again?</button>
                   </div>
@@ -38,7 +42,7 @@
            <!-- win game modal -->
 
             <div id="win-modal" class="modal win_modal">
-                <div class="modal-content">
+                <div class="modal-winlose">
                     <h1>You did it!</h1>
                     <h1 class="playWinNum"></h1>
                     <button id="goAgain_btn" class="btn">Play Again?</button>

@@ -92,7 +92,7 @@ startBtn.onclick = function() {
 
 function gameReset() {
     playerPos = 1
-    playerLives = 10
+    playerLives = 5
     createGrid()
     updateValid()
     lives.innerHTML = `${playerLives} players`
