@@ -150,15 +150,11 @@ function gamePlay(){
     tiles.forEach(clickTile => {
         clickTile.addEventListener('mousedown', () => {
 
-        // check if the player is standing on an even or odd square
-        // const playerEven = playerPos % 2 === 0 ? true : false
-
         const playerPosStr = (playerPos).toString()
         const playerPosPlus1Str = (playerPos+1).toString()
         const playerPosPlus2Str = (playerPos+2).toString()
         const playerPosPlus3Str = (playerPos+3).toString()
                 
-        /// checks if move is valid 
 
             if (!checkValid(clickTile)) {
                 tiles.forEach(tile => 
@@ -194,9 +190,11 @@ function gamePlay(){
     })
 }
 
+// To do
+
 // squid games type letter scrambling?
 // animate on hover
 // allow users to select player numbers1
-// make glass crack
+// make glass crack svg
 // player svg
 // animate player to the next block?
