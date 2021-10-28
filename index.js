@@ -180,7 +180,8 @@ function gamePlay(){
                 }
                 else {
                     tiles[0].classList.remove('player_start_dot')
-                    clickTile.classList.add('player')
+                    clickTile.classList.contains('end') ? clickTile.classList.add('player_end_dot') : clickTile.classList.add('player')
+
                     clickTile.classList.contains(playerPosPlus1Str) ? playerPos = playerPos+1 : playerPos = playerPos+2
                     checkGameOver()
                     updateValid()

@@ -50,7 +50,7 @@ h1{
 }
 
 p{
-    font-size: clamp(1rem, 1vw + 1rem, 3rem); 
+    font-size: clamp(1rem, .5vw + 1rem, 3rem); 
     margin: 0;
     text-shadow: .15em .15em black;
     letter-spacing: .1em;
@@ -61,6 +61,16 @@ h3{
     font-size: clamp(14px, 2px + 1vw, 26px);
     line-height: 90%;
     text-shadow: none;
+}
+
+footer{
+    display: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+footer a{
+    color: green;
 }
 
 .game_container{
@@ -194,15 +204,28 @@ h3{
     cursor: pointer;
   }
 
-.grid_container{
+  .grid_container{
     grid-gap: 1vh;
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 1fr;
     align-items: center;
     text-align: center;
-    width: 50vw;
+    width: 100vw;
     padding: 1rem;
+}
+
+@media only screen and (min-width: 40em) {
+    .grid_container{
+        width: 65vw;
+    }
+}
+
+
+@media only screen and (min-width: 50em) {
+    .grid_container{
+        width: 50vw;
+    }
 }
 
 .grid_container > * {
@@ -259,11 +282,11 @@ h3{
 }
 
 .player{
-    background: radial-gradient(circle at 50%, var(--green) 5%, var(--purple-dark) 0%);
+    background: radial-gradient(circle at 50%, var(--green) 10%, var(--purple-dark) 0%);
 }
 
 .player-death{
-    background: radial-gradient(circle at 50%, var(--green) 5%, black 0%);
+    background: radial-gradient(circle at 50%, var(--green) 10%, black 0%);
 }
 
 .score_holder{
@@ -283,13 +306,13 @@ h3{
 }
 
 .start > p {
-    line-height: 1em;
+    line-height: 1.5em;
     text-align: left;
 }
 
 .player_start_dot,
 .player_end_dot{
-    background: radial-gradient(circle at 50%, var(--green) 2.5%, var(--purple-dark) 0%);  
+    background: radial-gradient(circle at 50%, var(--green) 5%, var(--purple-dark) 0%);  
 }
 
 .end{

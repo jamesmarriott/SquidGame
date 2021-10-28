@@ -9,7 +9,7 @@ If a player steps on the weak glass, the glass breaks and the player is eliminat
 Nothing fancy here. Just plain old vanilla HTML/ JS/ CSS.
 Likely to refactor this into React.
 
-## Thanks
+## Credit
 Thank you for the funky font [Darrell Flood](https://www.dafont.com/game-of-squids.font).
 
 ## Next Steps (Open for collabs)
