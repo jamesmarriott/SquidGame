@@ -190,11 +190,3 @@ function gamePlay(){
     })
 }
 
-// To do
-
-// squid games type letter scrambling?
-// animate on hover
-// allow users to select player numbers1
-// make glass crack svg
-// player svg
-// animate player to the next block?
