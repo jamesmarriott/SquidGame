@@ -147,6 +147,7 @@ function checkValid(clickTile){
 }
 
 function gamePlay(){
+
     tiles.forEach(clickTile => {
         clickTile.addEventListener('mousedown', () => {
 
@@ -190,4 +191,3 @@ function gamePlay(){
         })
     })
 }
-
