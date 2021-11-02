@@ -58,7 +58,8 @@ function createGrid() {
 
 function checkGameOver() {
     tiles.forEach(tile => {
-        if (tile.classList.contains('end') && tile.classList.contains('player')) {
+        console.log(tile)
+        if (tile.classList.contains('end') && tile.classList.contains('player_end_dot')) {
             playWinNum.innerHTML = `${playerLives} players made it!`
             setTimeout(()=>{winModal.style.display = "block"}, 500)
         }
@@ -92,7 +93,7 @@ startBtn.onclick = function() {
 
 function gameReset() {
     playerPos = 1
-    playerLives = 5
+    playerLives = 10
     createGrid()
     updateValid()
     lives.innerHTML = `${playerLives} players`
