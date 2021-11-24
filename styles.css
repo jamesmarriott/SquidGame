@@ -208,6 +208,9 @@ footer a{
     cursor: pointer;
   }
 
+.grid_parent{
+}
+
   .grid_container{
     grid-gap: 1vh;
     overflow: hidden;
@@ -217,10 +220,11 @@ footer a{
     text-align: center;
     width: 100vw;
     padding: 1rem;
-    perspective: 100rem;
 }
 
+.grid_container:hover{
 
+}
 
 @media only screen and (min-width: 40em) {
     .grid_container{
@@ -240,19 +244,23 @@ footer a{
 }
 
 .square{
+    position: relative;
     border: .2em solid white;
     background-color: var(--purple-dark);
     cursor: pointer;
+    transform: perspective(10rem) translateZ(-40);
+    transition-duration: 0.15s;
+    transition-property: transform;
 }
 
 .square:hover{
     background-color: var(--purple-light);
-    border: .2em solid red;
+    transform: scale(1.05);
+    content: "df";
 }
 
 .disabled{
     cursor: default;
-
 }
 
 .disabled:hover{
@@ -293,13 +301,13 @@ footer a{
     width: 2vw;
 }
 
-.player{
-    background: radial-gradient(circle at 50%, var(--green) 10%, var(--purple-dark) 0%);
+.player::before{
+    content:"😳";
 }
 
+
 .player-death::before{
-    content: "💀";
-    /* background: radial-gradient(circle at 50%, var(--green) 10%, black 0%); */
+    content: "😱";
 }
 
 .score_holder{
@@ -323,9 +331,19 @@ footer a{
     text-align: left;
 }
 
-.player_start_dot,
-.player_end_dot{
-    background: radial-gradient(circle at 50%, var(--green) 5%, var(--purple-dark) 0%);  
+.player_start_dot::before{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    translate: (-50, +50);
+    content:"😳";
+}
+
+.player_end_dot::before{
+content:"😌";
 }
 
 .end{

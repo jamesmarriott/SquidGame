@@ -163,6 +163,7 @@ function gamePlay(){
                     tile.classList.remove('player')
                 )                                
                 if (clickTile.classList.contains('broken') || clickTile.classList.contains('weak')) {
+                    tiles[0].classList.remove('player_start_dot')
                     clickTile.classList.add('broken')
                     playerPos = 1
                     clickTile.classList.add('player-death')
