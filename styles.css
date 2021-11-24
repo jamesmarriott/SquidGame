@@ -89,6 +89,7 @@ footer a{
     left: 0;
     text-align: center;
     background-color: var(--modal-bg);
+
   }
   
   /* Modal Content/Box */
@@ -102,6 +103,8 @@ footer a{
     left: 0;
     right: 0;
     padding-top: 10vh;
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
 }
 
 .modal-content > * {
@@ -164,6 +167,7 @@ footer a{
     right: 0;
     left: 0;
     text-align: center;
+    
 }
 
   /* Modal Content/Box */
@@ -213,14 +217,16 @@ footer a{
     text-align: center;
     width: 100vw;
     padding: 1rem;
+    perspective: 100rem;
 }
+
+
 
 @media only screen and (min-width: 40em) {
     .grid_container{
         width: 65vw;
     }
 }
-
 
 @media only screen and (min-width: 50em) {
     .grid_container{
@@ -246,11 +252,14 @@ footer a{
 
 .disabled{
     cursor: default;
+
 }
 
 .disabled:hover{
+
     border: .2em solid white;
     cursor: default;
+    transform: none;
 }
 
 .disabled:hover{
@@ -269,6 +278,9 @@ footer a{
 
 .broken{
     background-color: black;
+    border: none;
+    transform: scale(0);
+    transition: transform 200ms ease-in-out;
 }
 
 .broken:hover{
@@ -285,8 +297,9 @@ footer a{
     background: radial-gradient(circle at 50%, var(--green) 10%, var(--purple-dark) 0%);
 }
 
-.player-death{
-    background: radial-gradient(circle at 50%, var(--green) 10%, black 0%);
+.player-death::before{
+    content: "💀";
+    /* background: radial-gradient(circle at 50%, var(--green) 10%, black 0%); */
 }
 
 .score_holder{

@@ -174,8 +174,8 @@ function gamePlay(){
                     animate(body, 'border-flash', function (node, animation) {
 
                     });
-                    message.style.display = "block"
-                    setTimeout(function(){ message.style.display = "none" }, 500)
+                    setTimeout(function(){ message.style.display = "block" }, 200)
+                    setTimeout(function(){ message.style.display = "none" }, 1000)
                     updateValid()
                     checkGameOver()
                     return
